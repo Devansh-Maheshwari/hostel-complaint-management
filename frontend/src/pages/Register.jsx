@@ -20,7 +20,7 @@ function Register() {
       } else {
         body = { full_name: fullname, email, password, phone, type: role, block_id,  room };
       }
-        const response = await fetch("http://localhost:4000/register", {
+        const response = await fetch("https://hostel-complaint-management-2.onrender.com/register", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(body),

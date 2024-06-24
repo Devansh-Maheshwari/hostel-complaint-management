@@ -31,7 +31,7 @@ const Complaint = () => {
 
   const getComplaints = async () => {
     try {
-      const response = await fetch("http://localhost:4000/complaints", {       //is completed parameter will be set by student and if set true then compelted button else not completed button warden can delete the complain 
+      const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {       //is completed parameter will be set by student and if set true then compelted button else not completed button warden can delete the complain 
         method: "GET",                                                         //get complaint ->/complaints->gives array complaint of user and /complanitby id will chnage the parameter 
         headers: GetAuthHeader(),
       });

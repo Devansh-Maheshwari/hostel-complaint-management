@@ -30,7 +30,7 @@ const formatTimestamp1 = (timestamp) => {
 
   const getComplaints = async (e) => {
     try {
-      const response = await fetch("http://localhost:4000/complaints", {
+      const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {
         method: "GET",
         headers: GetAuthHeader()
       });
@@ -46,7 +46,7 @@ const formatTimestamp1 = (timestamp) => {
   const handleApproval = async (id) => {
     
     try {
-      const response = await fetch(`http://localhost:4000/complaints/${id}`, {
+      const response = await fetch(`https://hostel-complaint-management-2.onrender.com/complaints/${id}`, {
         method: "POST",
         headers: GetAuthHeader(),
       });
@@ -66,7 +66,7 @@ const formatTimestamp1 = (timestamp) => {
   const deleteComplaint = async (id) => {
     console.log(id);
     try {
-      const response = await fetch(`http://localhost:4000/complaints/${id}`, {
+      const response = await fetch(`https://hostel-complaint-management-2.onrender.com/complaints/${id}`, {
         method: 'DELETE',
         headers: GetAuthHeader(),
       });

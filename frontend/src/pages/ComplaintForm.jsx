@@ -30,7 +30,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
       let body = { name, hostel_name, description, room };
       console.log(body);    
 
-      const response = await fetch("http://localhost:4000/complaints", {
+      const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),

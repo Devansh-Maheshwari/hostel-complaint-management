@@ -16,7 +16,7 @@ import { GetAuthHeader } from "../utils/header";
      
       const fetchUserType = async () => {
         try {
-          const response = await fetch("http://localhost:4000/userType", {
+          const response = await fetch("https://hostel-complaint-management-2.onrender.com/userType", {
             method: "GET",
             headers: GetAuthHeader(),
           });
@@ -38,7 +38,7 @@ import { GetAuthHeader } from "../utils/header";
   
     const getuserDetails = async (user_id) => {
       try {
-        const response = await fetch(`http://localhost:4000/userDetails/${user_id}`, {
+        const response = await fetch(`https://hostel-complaint-management-2.onrender.com/userDetails/${user_id}`, {
           method: "GET",
           headers: GetAuthHeader(),
         });
