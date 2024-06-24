@@ -72,6 +72,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
       <input
         id="name"
         type="text"
+        value={name}
         className="mt-1 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
         placeholder="Enter Complaint name"
         onChange={(e) => setName(e.target.value)}
@@ -93,6 +94,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
       <input
         id="room"
         type="text"
+        value={room}
         className="peer mt-1 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
         placeholder="Enter your Room No."
         onChange={(e) => setRoom(e.target.value)}
@@ -100,6 +102,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
       <label htmlFor="description">Tell us about your grievance:</label>
       <textarea
         id="description"
+        value={description}
         className="mb-8 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
         onChange={(e) => setDescription(e.target.value)}
         ></textarea>
