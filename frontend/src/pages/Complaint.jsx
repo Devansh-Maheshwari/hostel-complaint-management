@@ -103,6 +103,13 @@ const Complaint = () => {
                   ? `Completed on ${formatTimestamp(complaint.assigned_at)}`
                   : null}
               </p>
+              
+          <p className="text-sm text-gray-400">Category: {complaint.category}</p>
+          <div className="flex flex-row ">
+          <p className="text-sm text-gray-400 mr-5">Availabiltiy: {complaint.availability}</p>
+          <p className="text-sm text-gray-400 mr-5">Timings: {complaint.timing}</p>
+          </div>
+          
               <div
                 className="text-md leading-normal text-gray-400 sm:block overflow-hidden"
                 style={{ maxHeight: "100px" }}

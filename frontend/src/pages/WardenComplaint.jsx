@@ -95,9 +95,15 @@ const formatTimestamp1 = (timestamp) => {
       {complaints.map((complaint) => (
         <div key={complaint._id} className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
           <div className="text-lg mb-2 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-2xl">
-            {complaint.name} (Room No.{complaint.room})
+            {complaint.name} (Room No. {complaint.room})
           </div>
           <p className="text-sm">Created on {formatTimestamp1(complaint.created_at)}</p>
+          
+          <p className="text-sm text-gray-400">Category: {complaint.category}</p>
+          <div className="flex flex-row ">
+          <p className="text-sm text-gray-400 mr-5">Availabiltiy: {complaint.availability}</p>
+          <p className="text-sm text-gray-400 mr-5">Timings: {complaint.timing}</p>
+          </div>
           <p className="mb-4 text-sm">
             {complaint.assigned_at ? `Completed on ${formatTimestamp(complaint.assigned_at)}` : null}
           </p>
