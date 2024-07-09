@@ -115,7 +115,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
          >
         <option value="" disabled>Select your category</option>
         <option value="mess">mess</option>
-        <option value="elcetrical">elcetrical</option>
+        <option value="elcetrical">electrical</option>
         <option value="carpenter">carpenter</option>
     </select>
     <div className="flex flex-row ">
