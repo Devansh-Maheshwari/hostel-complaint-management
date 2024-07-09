@@ -31,13 +31,13 @@ function Login() {
 
   return (
  
-<div className="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50"> 
+<div className="flex min-h-screen w-full items-center justify-center text-gray-600 bg-gray-50"> 
     <div className="relative">
    <div className="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4">
           <div className="flex-auto p-6">
      <div className="mb-10 flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden">
               <a href="#" className="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
-                <span className="flex-shrink-0 text-3xl font-black  tracking-tight opacity-100">Login.</span>
+                <span className="flex-shrink-0 text-3xl font-black  tracking-tight opacity-100">Login</span>
               </a>
             </div>
       <form  className="mb-4" onSubmit={onSubmit}>
