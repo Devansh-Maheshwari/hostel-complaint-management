@@ -27,7 +27,8 @@ const formatTimestamp1 = (timestamp) => {
 
  const WardenComplaint = () => {
   const [complaints, setComplaints] = useState([]);
-
+  const [filteredComplaints, setFilteredComplaints] = useState([]);
+  const [filter, setFilter] = useState("all");
   const getComplaints = async (e) => {
     try {
       const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {
@@ -82,17 +83,33 @@ const formatTimestamp1 = (timestamp) => {
       console.error('Error deleting complaint:', error);
     }
   };
-
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+    if (e.target.value === "all") {
+      setFilteredComplaints(complaints);
+    } else {
+      setFilteredComplaints(complaints.filter(complaint => complaint.category === e.target.value));
+    }
+  };
   return (
     <div className="bg-gray-100 p-4 sm:p-8 md:p-10 h-screen">
   <h1 className="text-2xl font-bold mt-20 mb-8">Complaints</h1>
-  {complaints.length === 0 ? (
+  <div className="mb-4">
+        <label htmlFor="filter" className="mr-2">Filter by category:</label>
+        <select id="filter" value={filter} onChange={handleFilterChange}>
+          <option value="all">All</option>
+          <option value="mess">Mess</option>
+          <option value="carpenter">Carpenter</option>
+          <option value="electrical">Electrical</option>
+        </select>
+      </div>
+  {filteredComplaints.length === 0 ? (
     <p className="ml-4 mt-2 text-gray-600 text-xl">
       No complaints registered yet. 
     </p>
   ) : (
     <div className="container mx-auto grid gap-8 md:grid-cols-3 sm:grid-cols-1">
-      {complaints.map((complaint) => (
+      {filteredComplaints.map((complaint) => (
         <div key={complaint._id} className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
           <div className="text-lg mb-2 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-2xl">
             {complaint.name} (Room No. {complaint.room})
