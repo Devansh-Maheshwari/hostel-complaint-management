@@ -26,6 +26,18 @@ const ComplaintForm = ({ onFormSubmit }) => {
       alert("Please enter a valid complaint.");
       return;
     }
+    if (!availability.trim()) {
+      alert("Please select valid availability.");
+      return;
+    }
+    if (!category.trim()) {
+      alert("Please select valid category.");
+      return;
+    }
+    if (!timings.trim()) {
+      alert("Please select valid timings.");
+      return;
+    }
 
     try {
       const headers = GetAuthHeader();
@@ -51,7 +63,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
         setAvailability("")
         setCategory("")
         setTimings("")
-        onFormSubmit();
+        window.location = "/dashboard";
       } else {
         const error = await response.json();
         alert(`Error: ${error.message}`);
@@ -71,7 +83,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
   }, [isSubmitted]);
 
   return (
-   <div className="bg-gray-100 h-full w-full mx-auto flex items-center justify-center  flex-col rounded-lg lg:max-w-screen-xl lg:flex-row">
+   <div className="bg-gray-100 h-screen w-full mx-auto flex items-center justify-center   rounded-lg  ">
     <div className="border border-gray-100 shadow-gray-500/20 mt-8 mb-8 max-w-md bg-white shadow-sm sm:rounded-lg sm:shadow-lg lg:mt-0">
     <form onSubmit={onSubmitForm} className="p-4 sm:p-8">
       <label htmlFor="name">Complaint Name:</label>

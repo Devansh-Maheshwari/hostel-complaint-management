@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GetAuthHeader } from "../utils/header";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import ComplaintForm from "./ComplaintForm";
 
@@ -79,8 +80,13 @@ const Complaint = () => {
   console.log(complaints);
 
   return (
-    <div className="bg-gray-100 h-full p-4 sm:p-8 md:p-10 ">
-      <h1 className="text-2xl font-bold mt-20 mb-8">Complaints</h1>
+    <div className="bg-gray-100 h-screen p-4 sm:p-8 md:p-10 ">
+      <h1 className="text-2xl font-bold mt-20 mb-4 ">Complaints</h1>
+      <div className="mb-5">
+      <Link to="/file-complaint" className="text-blue-500 underline ">
+        File a Complaint
+      </Link>
+      </div>
       {complaints.length === 0 ? (
         <p className="ml-4 mt-2 text-gray-600 text-xl">
           No complaints registered yet.
@@ -131,7 +137,7 @@ const Complaint = () => {
           ))}
         </div>
       )}
-      <ComplaintForm onFormSubmit={refreshComplaints} />
+      {/* <ComplaintForm onFormSubmit={refreshComplaints} /> */}
     </div>
   );
 };
