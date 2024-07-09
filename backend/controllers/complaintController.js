@@ -40,14 +40,17 @@ exports.postComplaints = asyncWrapper(async (req, res) => {
       console.log("userinfo=",userInfo)
       const { email, type } = userInfo;
       // const studentinfo=await student.findOne({email:email});
-      const { name, hostel_name,description, room } = req.body;
+      const { name, hostel_name,description, room ,category,availability,timings} = req.body;
       console.log(name,hostel_name,room)
       let newComplaint = {
        name: name,
         hostel_name:hostel_name,
         student_id:userInfo._id,
         description:description,
-        room:room
+        room:room,
+        category:category,
+        timing:timings,
+        availability:availability
       };
       // console.log(studentinfo)
       const createdComplaint = await Complaint.create(newComplaint);

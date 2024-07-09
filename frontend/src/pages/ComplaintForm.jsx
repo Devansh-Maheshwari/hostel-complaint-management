@@ -4,6 +4,9 @@ import { GetAuthHeader } from "../utils/header";
 const ComplaintForm = ({ onFormSubmit }) => {
   const [name, setName] = useState("");
   const [hostel_name, setHostel_name] = useState("");
+  const [category, setCategory] = useState("");
+  const [availability, setAvailability] = useState("");
+  const[timings,setTimings]=useState("");
   const [description, setDescription] = useState("");
   const [room, setRoom] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -27,7 +30,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
     try {
       const headers = GetAuthHeader();
       console.log(headers);
-      let body = { name, hostel_name, description, room };
+      let body = { name, hostel_name, description, room,category,availability,timings };
       console.log(body);    
 
       const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {
@@ -45,6 +48,9 @@ const ComplaintForm = ({ onFormSubmit }) => {
         setHostel_name("");
         setDescription("");
         setRoom("");
+        setAvailability("")
+        setCategory("")
+        setTimings("")
         onFormSubmit();
       } else {
         const error = await response.json();
@@ -99,6 +105,46 @@ const ComplaintForm = ({ onFormSubmit }) => {
         placeholder="Enter your Room No."
         onChange={(e) => setRoom(e.target.value)}
         />
+        <label htmlFor="category">Category</label>
+      <select
+        id="category"
+        name="category"
+        className="peer mt-1 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+        onChange={(e) => setCategory(e.target.value)}
+        value={category}
+         >
+        <option value="" disabled>Select your category</option>
+        <option value="mess">mess</option>
+        <option value="elcetrical">elcetrical</option>
+        <option value="carpenter">carpenter</option>
+    </select>
+    <div className="flex flex-row ">
+    <div>
+    <label for="availibility">Available</label>
+    <input type="date" 
+           id="availibility" 
+           className="peer mt-1 w-5/6 resize-y overflow-auto rounded-lg border border-gray-300 px-3 py-1 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+           name="availibility"
+           onChange={(e) => setAvailability(e.target.value)} 
+           value={availability}/>
+    </div>
+    <div>
+       <label htmlFor="timings">Timing</label>
+       <select
+        id="timings"
+        name="timings"
+        className="peer mt-1 w-full resize-y overflow-auto rounded-lg border border-gray-300 px-3 py-1.5 shadow-sm focus:border-blue-500 focus:outline-none hover:border-blue-500"
+        onChange={(e) => setTimings(e.target.value)}
+        value={timings}
+        >
+        <option value="" disabled>Timings</option>
+        <option value="10AM-12PM">10AM-12PM</option>
+        <option value="4PM-6PM">4PM-6PM</option>
+        <option value="4PM-6PM">4PM-6PM</option>
+        <option value="4PM-6PM">4PM-6PM</option>
+    </select>
+   </div>
+    </div>
       <label htmlFor="description">Tell us about your grievance:</label>
       <textarea
         id="description"

@@ -40,7 +40,7 @@ function Navbar() {
       <header className="shadow bg-white fixed w-full z-10 top-0">
         <div className="  flex max-w-screen-xl flex-row space-x-1 items-center  overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center">
           <a href="#" className="flex items-center whitespace-nowrap text-2xl font-black">
-            <span className="text-black">ABV-IITM Hostel</span>
+            <span className="text-black">ABV-IIITM Hostel</span>
           </a>
           
          

@@ -18,6 +18,18 @@ const ComplaintSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  category: {
+    type: String,
+    trim: true
+  },
+  timing: {
+    type: String,
+    trim: true
+  },
+  availability: {
+    type: String,
+    trim: true
+  },
   room: {
     type: String,
     trim: true
