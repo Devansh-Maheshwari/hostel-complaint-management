@@ -151,6 +151,30 @@ exports.putComplaintsByid = asyncWrapper(async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+  
+  exports.getComplaintByHistory = asyncWrapper(async (req, res) => {
+    const token = req.headers.authorization;
+    console.log("token=",token);
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("putComplaintsByid=",decodedToken);
+  
+    const { email, type } = decodedToken.user;
+    console.log(email,type);
+    try {
+       if (type === "student") {
+        const studentinfo=await student.findOne({email:email});
+        console.log(studentinfo)
+        const myComplaints = await Complaint.find({student_id:studentinfo._id }).sort({ created_at: -1 });
+        res.json(myComplaints);
+      } else {
+        res.status(403).json({ error: "Unauthorized" });
+      }
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
   exports.getUserType = asyncWrapper(async(req, res)=> {
     try{
     const token = req.headers.authorization;

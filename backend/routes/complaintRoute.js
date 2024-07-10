@@ -1,11 +1,12 @@
 const express = require("express");
 const complaintRoutes = express.Router();
-const { postComplaints,putComplaintsByid, getAllComplaintsByUser, getUserType, getUserDetails, deleteComplaints } = require("../controllers/complaintController");
+const { postComplaints,putComplaintsByid,getComplaintByHistory, getAllComplaintsByUser, getUserType, getUserDetails, deleteComplaints } = require("../controllers/complaintController");
 // Post a new complaint
 complaintRoutes.post("/complaints", postComplaints);
 
 // Get all complaints by user
 complaintRoutes.get("/complaints", getAllComplaintsByUser);
+complaintRoutes.get("/complaints/history", getComplaintByHistory);
 
 // Update a complaint by ID
 complaintRoutes.post("/complaints/:id", putComplaintsByid);
