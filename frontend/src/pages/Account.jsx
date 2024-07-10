@@ -55,6 +55,7 @@ import { GetAuthHeader } from "../utils/header";
           setBlockName(data.studentDetails.hostel_name || "");
           console.log("data in account",data)
         }else if(data.type==="warden"){
+          setUserName(data.full_name || "");
           setBlockName(data.wardenDetails.hostel_name || "");
           setEmail(data.wardenDetails.email || "");
           setPhone(data.phone || "");
