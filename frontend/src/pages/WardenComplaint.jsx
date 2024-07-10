@@ -29,6 +29,11 @@ const formatTimestamp1 = (timestamp) => {
   const [complaints, setComplaints] = useState([]);
   const [filteredComplaints, setFilteredComplaints] = useState([]);
   const [filter, setFilter] = useState("");
+  const [expanded, setExpanded] = useState({});
+  
+  const toggleReadMore = (id) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
   const getComplaints = async (e) => {
     try {
       const response = await fetch("https://hostel-complaint-management-2.onrender.com/complaints", {
@@ -110,7 +115,10 @@ const formatTimestamp1 = (timestamp) => {
     </p>
   ) : (
     <div className="container mx-auto grid gap-8 md:grid-cols-3 sm:grid-cols-1">
-      {filteredComplaints.map((complaint) => (
+      {filteredComplaints.map((complaint) => {
+        const isLongText = complaint.description.length > 45;
+        const isExpanded = expanded[complaint._id] || false;
+       return(
         <div key={complaint._id} className="relative flex h-full flex-col rounded-md border border-gray-200 bg-white p-2.5 hover:border-gray-400 sm:rounded-lg sm:p-5">
           <div className="text-lg mb-2 font-semibold text-gray-900 hover:text-black sm:mb-1.5 sm:text-2xl">
             {complaint.name} (Room No. {complaint.room})
@@ -122,11 +130,18 @@ const formatTimestamp1 = (timestamp) => {
           <p className="text-sm text-gray-400 mr-5">Availabiltiy: {complaint.availability}</p>
           <p className="text-sm text-gray-400 mr-5">Timings: {complaint.timing}</p>
           </div>
-          <p className="mb-4 text-sm">
+          <p className="mb-2 text-sm">
             {complaint.assigned_at ? `Completed on ${formatTimestamp(complaint.assigned_at)}` : null}
           </p>
-          <div className="text-md leading-normal text-gray-400 sm:block">
-            {complaint.description}
+          <div className="text-md leading-normal text-gray-600 sm:block mt-1">
+          {isExpanded || !isLongText
+                    ? complaint.description
+                    : `${complaint.description.substring(0,45)}...`}
+                  {isLongText && (
+                    <span className="text-blue-500 underline cursor-pointer" onClick={() => toggleReadMore(complaint._id)}>
+                      {isExpanded ? " Show less" : " Read more"}
+                    </span>
+                  )}
           </div>
           <div className="flex">
   <button
@@ -151,7 +166,8 @@ const formatTimestamp1 = (timestamp) => {
 </div>
 
         </div>
-      ))}
+      )
+    })}
     </div>
   )}
 </div>
