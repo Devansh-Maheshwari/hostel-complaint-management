@@ -107,6 +107,8 @@ const ComplaintForm = ({ onFormSubmit }) => {
         <option value="bh1">BH1</option>
         <option value="bh2">BH2</option>
         <option value="bh3">BH3</option>
+        <option value="gh">GH</option>
+        
     </select>
       <label htmlFor="room">Room No.:</label>
       <input
@@ -127,7 +129,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
          >
         <option value="" disabled>Select your category</option>
         <option value="mess">mess</option>
-        <option value="elcetrical">electrical</option>
+        <option value="electrical">electrical</option>
         <option value="carpenter">carpenter</option>
     </select>
     <div className="flex flex-row ">

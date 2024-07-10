@@ -1,4 +1,5 @@
 import Login from './pages/Login'
+import ComplaintHistory from './pages/ComplaintHistory'
 import Register from './pages/Register'
 import ComplaintForm from './pages/ComplaintForm'
 import Account from './pages/Account'
@@ -29,6 +30,10 @@ const router=createBrowserRouter([
   {
     path: "/file-complaint",
     element: <ComplaintForm />
+  },
+  {
+    path: "/complaint-history", // 
+    element: <ComplaintHistory />
   }
 ])
 function App() {
