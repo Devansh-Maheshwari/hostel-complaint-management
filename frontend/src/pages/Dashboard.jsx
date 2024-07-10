@@ -5,7 +5,7 @@ import WardenComplaint from "./WardenComplaint";
 import { GetAuthHeader } from "../utils/header";
 export default function  Dashboard(){
 
-     const [userType,setUserType]=useState("student");
+     const [userType,setUserType]=useState("");
      useEffect(()=>{
         const fetchUserType = async () => {
             try {
