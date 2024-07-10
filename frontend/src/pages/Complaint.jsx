@@ -52,7 +52,7 @@ const Complaint = () => {
       console.log("complaint-id",complaint_id)
       
       const response = await fetch(
-        `https://hostel-complaint-management-2.onrender.com/${complaint_id}`,
+        `https://hostel-complaint-management-2.onrender.com/complaints/${complaint_id}`,
         {
           method: "POST", // Changed to PUT
           headers: GetAuthHeader(),
@@ -64,7 +64,7 @@ const Complaint = () => {
         console.log("after fetch");
       }
       else{
-        console.log("error")
+        console.log("error in response")
       }
     } catch (err) {
       console.error(err.message);
