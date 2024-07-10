@@ -102,7 +102,7 @@ const formatTimestamp1 = (timestamp) => {
   <div className="mb-4">
         <label htmlFor="filter" className="mr-2">Filter by category:</label>
         <select id="filter" value={filter} onChange={handleFilterChange}>
-        <option value="all">Choose Category</option> 
+        <option value="">Choose Category</option> 
           <option value="all">All</option>
           <option value="mess">Mess</option>
           <option value="carpenter">Carpenter</option>
