@@ -20,6 +20,8 @@ function Login() {
       if (data.jwtToken) {
         localStorage.setItem("jwtToken", data.jwtToken);
         window.location = "/dashboard";
+        setEmail("");
+        setPassword("");
       } else {
         alert("Invalid credentials. Please check your email and password.");
       }
@@ -50,6 +52,7 @@ function Login() {
                   name="email-username"
                   placeholder="Enter your email"
                   autoFocus=""
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
         </div>
