@@ -44,7 +44,7 @@ function Register() {
        </div>
        <div>
         <h4 className="mb-2 font-medium text-gray-700 xl:text-xl">welcome</h4>
-        <p className="mb-6 text-gray-500">Please Sign-in to access your account</p>
+        <p className="mb-6 text-gray-500">Please Sign-up to access your account</p>
        </div>
       <div>
         <form className="mb-4" method="POST">
@@ -101,6 +101,7 @@ function Register() {
                     <option value="bh1">BH1</option>
                     <option value="bh2">BH2</option>
                     <option value="bh3">BH3</option>
+                    <option value="gh">GH</option>
                   </select>
                 </div>
                   {role !== "warden" && (
@@ -166,7 +167,7 @@ function Register() {
                     type="submit"
                     onClick={onSubmit}
                     >
-                    Sign in
+                    Sign up
                   </button>
                 </div>
   
