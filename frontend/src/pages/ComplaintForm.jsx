@@ -131,6 +131,7 @@ const ComplaintForm = ({ onFormSubmit }) => {
         <option value="mess">mess</option>
         <option value="electrical">electrical</option>
         <option value="carpenter">carpenter</option>
+        <option value="other">other</option>
     </select>
     <div className="flex flex-row ">
     <div>

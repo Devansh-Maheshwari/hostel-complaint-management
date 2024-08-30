@@ -79,7 +79,9 @@ const formatTimestamp1 = (timestamp) => {
       
       console.log(response);
       if (response.ok) {
-        getComplaints();
+        // Remove the deleted complaint from the state
+        setComplaints(prevComplaints => prevComplaints.filter(complaint => complaint._id !== id));
+        setFilteredComplaints(prevFilteredComplaints => prevFilteredComplaints.filter(complaint => complaint._id !== id));
       } else {
         console.error('Failed to delete complaint');
       }
@@ -107,6 +109,7 @@ const formatTimestamp1 = (timestamp) => {
           <option value="mess">Mess</option>
           <option value="carpenter">Carpenter</option>
           <option value="electrical">Electrical</option>
+          <option value="other">other</option>
         </select>
       </div>
   {filteredComplaints.length === 0 ? (
