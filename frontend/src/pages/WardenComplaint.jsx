@@ -99,7 +99,7 @@ const formatTimestamp1 = (timestamp) => {
     }
   };
   return (
-    <div className="bg-gray-100 p-4 sm:p-8 md:p-10 h-screen">
+    <div className="bg-gray-100 p-4 sm:p-8 md:p-10 h-full">
   <h1 className="text-2xl font-bold mt-20 mb-8">Complaints</h1>
   <div className="mb-4">
         <label htmlFor="filter" className="mr-2">Filter by category:</label>
